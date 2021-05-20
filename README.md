@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/darielmedr/ip-address-tracker-angular)
-- Live Site URL: [Add live site URL here](https://darielmedr.github.io/ip-address-tracker-angular)
+- Solution URL: [https://github.com/darielmedr/ip-address-tracker-angular](https://github.com/darielmedr/ip-address-tracker-angular)
+- Live Site URL: [https://darielmedr.github.io/ip-address-tracker-angular](https://darielmedr.github.io/ip-address-tracker-angular)
 
 ### Built with
 
