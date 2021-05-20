@@ -1,0 +1,31 @@
+:root {
+  // Breakpoints
+  --min-mobile: 82rem;
+  --min-desktop: 144rem;
+
+  // Colors
+  --color-dark-gray-100: hsla(0, 0%, 59%, 0.5);
+  --color-dark-gray-400: hsl(0, 0%, 59%);
+  --color-dark-gray-900: hsl(0, 0%, 17%);
+  --color-white: hsl(0, 0%, 100%);
+
+  // Font families
+  --font-family: "Rubik", sans-serif;
+
+  // Font weights
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  // Font sizes
+  --font-size-text: 1.8rem;
+  --font-size-title: 2.2rem;
+  --font-size-subtitle: 0.8rem;
+
+  @media screen and (min-width: 1024px) {
+    // Font sizes
+    --font-size-text: 2.2rem;
+    --font-size-title: 3rem;
+    --font-size-subtitle: 1rem;
+  }
+}
