@@ -45,8 +45,8 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [Angular](https://angular.io/) - Angular framework
-- [LeafletJS] (https://leafletjs.com/) - Open-source JavaScript library for mobile-friendly interactive maps
-- [@asymmetrik/ngx-leaflet] (https://www.npmjs.com/package/@asymmetrik/ngx-leaflet) - Leaflet packages for Angular.io
+- [LeafletJS](https://leafletjs.com/) - Open-source JavaScript library for mobile-friendly interactive maps
+- [@asymmetrik/ngx-leaflet](https://www.npmjs.com/package/@asymmetrik/ngx-leaflet) - Leaflet packages for Angular.io
 
 ## Author
 
