@@ -6,21 +6,17 @@
     </li>
     <li>
       <h4>Location</h4>
-      <p *ngIf="ipGeoInfo?.status === 'success'">
+      <p>
         {{ ipGeoInfo?.location }}
       </p>
     </li>
     <li>
       <h4>Timezone</h4>
-      <p>{{ ipGeoInfo?.timezone | date: "zzzz" | gmtToUtc }}</p>
+      <p>{{ ipGeoInfo?.timezone }}</p>
     </li>
     <li>
       <h4>ISP</h4>
       <p>{{ ipGeoInfo?.isp }}</p>
     </li>
   </ul>
-
-  <div *ngIf="ipGeoInfo?.status === 'fail'">
-    <p class="errorMessage">{{ ipGeoInfo?.errorMessage }}</p>
-  </div>
 </div>

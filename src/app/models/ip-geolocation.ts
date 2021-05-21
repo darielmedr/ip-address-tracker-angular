@@ -1,9 +1,7 @@
 export default interface IpGeolocation {
     ip: string,
-    status: IPGeoStatus,
-    errorMessage?: string
     location: string,
-    timezone: Date,
+    timezone: string,
     isp: string,
     coord: {
         lat: number,
