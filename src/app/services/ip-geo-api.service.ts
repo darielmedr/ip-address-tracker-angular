@@ -3,23 +3,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import IpGeolocation from '../models/ip-geolocation';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class IpGeoApiService {
 
-  baseUrl: string = 'http://ip-api.com/json';
-
-  /**
-   * numeric value (to save bandwidth)
-   * that represent (fields=status,message,region,city,zip,lat,lon,offset,isp,query)
-   * see https://ip-api.com/docs/api:json
-   */
-  fields: number | string = 33612532;
+  baseUrl: string = 'https://geo.ipify.org/api/v1';
+  apiKey: string = environment.ipifyApKey;
 
   constructor(private http: HttpClient) { }
 
   public getClientIpGeolocationInfo(): Observable<IpGeolocation> {
-    return this.http.get<IpGeolocation>(`${this.baseUrl}/?fields=${this.fields}`).pipe(
+    return this.http.get<IpGeolocation>(`${this.baseUrl}/?apiKey=${this.apiKey}`).pipe(
       map((data: any) => {
         return this.mapApiResponseToIpGeolocation(data);
       })
@@ -27,7 +22,7 @@ export class IpGeoApiService {
   }
 
   public getIpGeolocationInfo(ip: string): Observable<IpGeolocation> {
-    return this.http.get<IpGeolocation>(`${this.baseUrl}/${ip}?fields=${this.fields}`).pipe(
+    return this.http.get<IpGeolocation>(`${this.baseUrl}/?apiKey=${this.apiKey}&ipAddress=${ip}`).pipe(
       map((data: any) => {
         return this.mapApiResponseToIpGeolocation(data);
       })
@@ -36,15 +31,13 @@ export class IpGeoApiService {
 
   private mapApiResponseToIpGeolocation(data: any): IpGeolocation {
     return {
-      ip: data.query,
-      status: data.status,
-      errorMessage: data.message,
-      location: `${data.city}, ${data.region} ${data.zip}`,
-      timezone: data.offset,
+      ip: data.ip,
+      location: `${data.location.city}, ${data.location.region} ${data.location.postalCode}`,
+      timezone: `UTC ${data.location.timezone}`,
       isp: data.isp,
       coord: {
-        lat: data.lat,
-        lon: data.lon
+        lat: data.location.lat,
+        lon: data.location.lng
       }
     };
   }
